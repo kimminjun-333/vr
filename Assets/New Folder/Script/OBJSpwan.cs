@@ -17,7 +17,10 @@ public class OBJSpwan : MonoBehaviour
     {
         foreach (GameObject a in objPrefab)
         {
-            a.AddComponent<OBJCollider>();
+            if (!a.TryGetComponent<OBJCollider>(out OBJCollider obj))
+            {
+                a.AddComponent<OBJCollider>();
+            }
         }
     }
 
